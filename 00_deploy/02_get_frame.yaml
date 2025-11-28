@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getframe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 02_get_frame
+  template:
+    metadata:
+      labels:
+        app: 02_get_frame
+    spec:
+      containers:
+      - name: test-container
+        image: 02_get_frame:v1
+        resources:
+          requests:
+            memory: "256Mi"
+          limits:
+            memory: "512Mi"

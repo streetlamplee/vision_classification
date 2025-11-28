@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 01_test
+  template:
+    metadata:
+      labels:
+        app: 01_test
+    spec:
+      containers:
+      - name: test-container
+        image: 01_test:v1
+        resources:
+          requests:
+            memory: "128Mi"
+          limits:
+            memory: "256Mi"
